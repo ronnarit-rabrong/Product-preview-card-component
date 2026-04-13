@@ -1,0 +1,218 @@
+@font-face {
+	font-family: 'Fraunces';
+	src: url('assets/fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+	/* typography */
+	--ff-primary: 'Montserrat';
+	--ff-secondary: 'Fraunces';
+	--fs-700: 2rem; 			/* font-size: 32px */
+	--fs-300: 0.875rem;  	/* font-size: 14px */
+	--fs-200: 0.8175rem;		/* font-size: 13px */
+	--fs-100: 0.75rem;		/* font-size: 12px */
+
+	/*	color */
+	--clr-black: hsl(212, 21%, 14%);
+	--clr-grey: hsl(228, 12%, 48%);
+	--clr-white: hsl(0, 0%, 100%);
+	--clr-cream: hsl(30, 38%, 92%);
+	--clr-green-700: hsl(158, 42%, 18%);
+	--clr-green-500: hsl(158, 36%, 37%);
+
+	/* for background */
+	--clr-primary: var(--clr-cream);
+	--clr-secondary: var(--clr-white);
+
+	/* for typography */
+	--clr-neutral-900: var(--clr-black);
+	--clr-neutral-800: var(--clr-grey);
+
+	/* for highlight */
+	--clr-accent-700: var(--clr-green-700);
+	--clr-accent-600: var(--clr-green-500);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+body{
+	margin: 0;
+}
+
+img,
+picture {
+	width: 100%;
+	display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*{
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+body{
+	background-color: var(--clr-primary);
+	font-family: var(--ff-primary), serif;
+	font-size: var(--fs-300);
+	letter-spacing: 0;
+}
+
+.main-site{
+	min-height: 100svh;
+	padding:0.78125rem;
+	display: grid;
+	place-items: center;
+}
+
+/*
+
+	product
+
+*/
+.product{
+	--product-border: 0.75rem;
+	background-color: var(--clr-secondary);
+	border-radius: var(--product-border);
+}
+
+/* product typography */
+.product__text-heading{
+	color: var(--clr-neutral-900);
+	font-family: var(--ff-secondary), serif;
+	font-size: var(--fs-700);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.product__text-subheading{
+	color: var(--clr-accent-600);
+	font-family: var(--ff-secondary), serif;
+	font-size: var(--fs-700);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.product__text-smaller-subheading{
+	color: var(--clr-neutral-800);
+	font-size: var(--fs-200);
+	font-weight: 500;
+	line-height: 1.05;
+}
+
+.product__text-body{
+	color: var(--clr-neutral-800);
+	font-size: var(--fs-300);
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+.product__text-preview{
+	color: var(--clr-neutral-800);
+	font-size: var(--fs-100);
+	font-weight: 500;
+	line-height: 1.035;
+	letter-spacing: 0.25rem;
+	text-transform: uppercase;
+}
+
+/*	product button */
+.product__btn{
+	background-color: var(--clr-accent-600);
+	border: none;
+	border-radius: 0.75em;
+	width: 100%;
+	min-height: 3.125rem;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem 1rem;
+}
+
+.product__btn:hover{
+	cursor: pointer;
+	background-color: var(--clr-accent-700);
+}
+
+.product__btn img{
+	width: fit-content;
+	aspect-ratio: 1 / 1;
+}
+
+.product__btn span{
+	font-size: var(--fs-300);
+	font-weight: 600;
+	line-height: 1.1;
+	color: var(--clr-secondary);
+}
+
+/* product layout */
+.product__content{
+	padding: 2rem;
+}
+
+.product__price{
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+@media (max-width: 37.4999rem) {
+	.product__image{
+		border-top-left-radius: var(--product-border);
+		border-top-right-radius: var(--product-border);
+		width: 100%;
+		height: 21.375rem;
+		object-fit: cover;
+	}
+
+	.product__content >*:not(:first-child){
+		margin: 1.5rem 0 0 0;
+	}
+
+}
+
+@media (min-width: 37.5rem) {
+	.product{
+		width: min(100%, 37.5rem);
+	}
+
+	.product{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.product__image{
+		border-top-left-radius: var(--product-border);
+		border-bottom-left-radius: var(--product-border);
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.product__content >*:nth-child(2),
+	.product__content >*:nth-child(3){
+		margin: 1.5rem 0 0 0;
+	}
+
+	.product__content >*:nth-child(n + 4){
+		margin: 2rem 0 0 0;
+	}
+}
