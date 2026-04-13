@@ -10,10 +10,13 @@
 <body>
 	<main class="main-site">
 		<section class="product">
-			<picture>
-				<source media="(min-width: 37.5rem)" srcset="assets/images/image-product-desktop.jpg">
-				<img class="product__image" src="assets/images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum">
-			</picture>
+			<figure class="product__media">
+				<picture class="product__picture">
+					<source media="(min-width: 37.5rem)" srcset="assets/images/image-product-desktop.jpg">
+					<img class="product__image" src="assets/images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum">
+				</picture>
+				<figcaption class="visually-hidden">Product image of Gabrielle Essence Eau De Parfum</figcaption>
+			</figure>
 			<div class="product__content">
 				<p class="product__text-preview">Perfume</p>
 				<h1 class="product__text-heading">Gabrielle Essence Eau De Parfum</h1>

@@ -10,8 +10,8 @@
 
 :root {
 	/* typography */
-	--ff-primary: 'Montserrat';
-	--ff-secondary: 'Fraunces';
+	--ff-primary: 'Montserrat', system-ui, sans-serif;
+	--ff-secondary: 'Fraunces', serif;
 	--fs-700: 2rem; 			/* font-size: 32px */
 	--fs-300: 0.875rem;  	/* font-size: 14px */
 	--fs-200: 0.8175rem;		/* font-size: 13px */
@@ -50,6 +50,7 @@ h3,
 h4,
 h5,
 p,
+figure,
 body{
 	margin: 0;
 }
@@ -58,6 +59,16 @@ img,
 picture {
 	width: 100%;
 	display: block;
+}
+
+.visually-hidden{
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	height: 0.0625rem;
+	width: 0.0625rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -71,7 +82,7 @@ picture {
 
 body{
 	background-color: var(--clr-primary);
-	font-family: var(--ff-primary), serif;
+	font-family: var(--ff-primary), system-ui, sans-serif;
 	font-size: var(--fs-300);
 	letter-spacing: 0;
 }
@@ -115,7 +126,7 @@ body{
 	color: var(--clr-neutral-800);
 	font-size: var(--fs-200);
 	font-weight: 500;
-	line-height: 1.05;
+	line-height: 1.1;
 }
 
 .product__text-body{
@@ -129,7 +140,7 @@ body{
 	color: var(--clr-neutral-800);
 	font-size: var(--fs-100);
 	font-weight: 500;
-	line-height: 1.035;
+	line-height: 1;
 	letter-spacing: 0.25rem;
 	text-transform: uppercase;
 }
@@ -200,7 +211,8 @@ body{
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.product__image{
+	.product__image,
+	.product__picture{
 		border-top-left-radius: var(--product-border);
 		border-bottom-left-radius: var(--product-border);
 		height: 100%;
