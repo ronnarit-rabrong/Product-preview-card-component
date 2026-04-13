@@ -61,23 +61,16 @@ picture {
 	display: block;
 }
 
-.visually-hidden{
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	overflow: hidden;
+.sr-only{
 	position: absolute;
-	white-space: nowrap;
-	height: 0.0625rem;
-	width: 0.0625rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	*{
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+	width: 0.0625rem;            /* collapse visually */
+	height: 0.0625rem;           /* collapse visually */
+	padding: 0;
+	margin: -0.0625rem;          /* remove from visual flow */
+	overflow: hidden;      /* clip contents */
+	clip: rect(0 0 0 0);   /* legacy clipping for older browsers */
+	white-space: nowrap;   /* prevent line breaks */
+	border: 0;
 }
 
 body{
@@ -106,7 +99,7 @@ body{
 }
 
 /* product typography */
-.product__text-heading{
+.product__name{
 	color: var(--clr-neutral-900);
 	font-family: var(--ff-secondary), serif;
 	font-size: var(--fs-700);
@@ -114,7 +107,7 @@ body{
 	line-height: 1;
 }
 
-.product__text-subheading{
+.product__price-current{
 	color: var(--clr-accent-600);
 	font-family: var(--ff-secondary), serif;
 	font-size: var(--fs-700);
@@ -122,21 +115,21 @@ body{
 	line-height: 1;
 }
 
-.product__text-smaller-subheading{
+.product__price-old{
 	color: var(--clr-neutral-800);
 	font-size: var(--fs-200);
 	font-weight: 500;
-	line-height: 1.1;
+	line-height: 1;
 }
 
-.product__text-body{
+.product__info{
 	color: var(--clr-neutral-800);
 	font-size: var(--fs-300);
 	font-weight: 500;
 	line-height: 1.6;
 }
 
-.product__text-preview{
+.product__type{
 	color: var(--clr-neutral-800);
 	font-size: var(--fs-100);
 	font-weight: 500;
@@ -176,7 +169,7 @@ body{
 }
 
 /* product layout */
-.product__content{
+.product__details{
 	padding: 2rem;
 }
 
@@ -195,10 +188,9 @@ body{
 		object-fit: cover;
 	}
 
-	.product__content >*:not(:first-child){
+	.product__details >*:not(:first-child){
 		margin: 1.5rem 0 0 0;
 	}
-
 }
 
 @media (min-width: 37.5rem) {
@@ -219,12 +211,12 @@ body{
 		object-fit: cover;
 	}
 
-	.product__content >*:nth-child(2),
-	.product__content >*:nth-child(3){
+	.product__details >*:nth-child(2),
+	.product__details >*:nth-child(3){
 		margin: 1.5rem 0 0 0;
 	}
 
-	.product__content >*:nth-child(n + 4){
+	.product__details >*:nth-child(n + 4){
 		margin: 2rem 0 0 0;
 	}
 }
